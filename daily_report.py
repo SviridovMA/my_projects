@@ -5,6 +5,7 @@ import seaborn as sns
 import pandahouse as ph
 import io
 import matplotlib.ticker as ticker
+import os
 
 from datetime import date, timedelta, datetime
 
@@ -47,7 +48,7 @@ def get_plot(data):
 def feed_report(chat=None):
 
     chat_id = chat or 636572045
-    bot = telegram.Bot(token='5091102456:AAFP0AKJlraoYUUZft7qJocQZ3-TXPTHWGY')
+    bot = telegram.Bot(token=os.environ.get('REPORT_BOT_TOKEN'))
     msg = '''🗓 Отчет по ленте за {date} 🗓
 All Events: {events:,} 
 👤 DAU: {users:,} ({to_users_day_ago} к дню назад, {to_users_week_ago} к неделе назад)
