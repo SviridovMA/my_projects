@@ -12,8 +12,7 @@ sns.set_style("darkgrid")
 sns.set(rc={'figure.figsize':(11.7,8.27)})
 
 # Инициализирую бота
-token='5091102456:AAFP0AKJlraoYUUZft7qJocQZ3-TXPTHWGY'
-bot = telegram.Bot(token=token)
+bot = telegram.Bot(token=os.environ.get('REPORT_BOT_TOKEN'))
 
 # Входные данные
 a1 = 1 #коэффициент, задающий количество стандартных отклонений
