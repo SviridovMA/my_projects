@@ -111,7 +111,7 @@ def get_plot(data_feed, data_msgs, data_new_users, data_dau_all):
 
 def app_report(chat=None):
     chat_id = chat or 636572045
-    bot = telegram.Bot(token='5091102456:AAFP0AKJlraoYUUZft7qJocQZ3-TXPTHWGY')
+    bot = telegram.Bot(token=os.environ.get('REPORT_BOT_TOKEN'))
 
     msg = '''Отчет по всему приложению за {date}
 Events: {events:,}
