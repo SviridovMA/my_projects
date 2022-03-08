@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
-
-
 import pandas as pd
 import warnings
 import requests
@@ -126,9 +123,10 @@ def yandex_direct(clientLoginlist:list, start_date:str, end_date:str, token, fie
         file.write(req.text)
         file.close()
         direct = pd.read_csv("cashez.csv", header=1, sep='	', index_col=0, engine='python')
-
-        direct.Cost = direct.Cost/1000000
-        direct.Cost = direct.Cost*1.2
+        
+        if 'Cost' in fields:
+            direct.Cost = direct.Cost/1000000
+            direct.Cost = direct.Cost*1.2
 
 
         direct = direct.iloc[:-1]
@@ -395,10 +393,3 @@ def google_big_query(data, table_name, rewrite:bool, rewrite_condition:str, colu
     )
     
     return None
-
-
-# In[ ]:
-
-
-
-
